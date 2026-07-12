@@ -41,11 +41,49 @@ const startAudit = async (req, res) => {
                 auditors
             ]
         );
+        const audit = result.rows[0];
+        const assetsResult = await pool.query(
+            `
+            SELECT
+                asset_code,
+                asset_name,
+                location
+            FROM assets
+            `
+        );
+        for (const asset of assetsResult.rows) {
+
+            await pool.query(
+
+                `
+                INSERT INTO audit_assets
+                (
+                    audit_id,
+                    asset_code,
+                    asset_name,
+                    expected_location,
+                    status
+                )
+
+                VALUES ($1,$2,$3,$4,$5)
+                `,
+
+                [
+                    audit.id,
+                    asset.asset_code,
+                    asset.asset_name,
+                    asset.location,
+                    "Pending"
+                ]
+
+            );
+
+        }
 
         return res.status(201).json({
             success: true,
             message: "Audit Cycle Created Successfully",
-            audit: result.rows[0]
+            audit
         });
 
     }
