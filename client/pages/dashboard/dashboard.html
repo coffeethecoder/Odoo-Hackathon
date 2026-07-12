@@ -21,9 +21,6 @@
           <h1>AssetFlow</h1>
         </div>
       </div>
-      <div class="user-profile">
-        <div class="avatar">EM</div>
-      </div>
     </header>
 
     <div class="layout-wrapper">
@@ -32,9 +29,9 @@
 
       <nav class="sidebar" id="sidebar">
         <ul class="nav-list" id="nav-list">
-          <li class="nav-item active"><a href="#">Dashboard</a></li>
+          <li class="nav-item active"><a href="dashboard.html">Dashboard</a></li>
           <li class="nav-item"><a href="#">Organization setup</a></li>
-          <li class="nav-item"><a href="#">Assets</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
           <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
           <li class="nav-item"><a href="#">Resource Booking</a></li>
           <li class="nav-item"><a href="#">Maintenance</a></li>
@@ -52,35 +49,30 @@
         <div class="kpi-grid">
           <div class="kpi-card">
             <span class="kpi-label">Available</span>
-            <span class="kpi-value">128</span>
+            <span class="kpi-value">0</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Allocated</span>
-            <span class="kpi-value">76</span>
+            <span class="kpi-value">0</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Maintenance Today</span>
-            <span class="kpi-value">4</span>
+            <span class="kpi-value">0</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Active Bookings</span>
-            <span class="kpi-value">9</span>
+            <span class="kpi-value">0</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Pending Transfers</span>
-            <span class="kpi-value">3</span>
+            <span class="kpi-value">0</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Upcoming returns</span>
-            <span class="kpi-value">12</span>
+            <span class="kpi-value">0</span>
           </div>
         </div>
 
-        <div class="alert-banner error">
-          <div class="alert-content">
-            <p><strong>3 assets overdue for return</strong> - flagged for follow-up</p>
-          </div>
-        </div>
 
         <div class="action-buttons">
           <button class="btn btn-primary" onclick="alert('Registering asset...')">+ register asset</button>
@@ -88,23 +80,6 @@
           <button class="btn btn-secondary" onclick="alert('Raising maintenance request...')">Raise requests</button>
         </div>
 
-        <section class="recent-activity">
-          <h2>Recent Activity</h2>
-          <ul class="activity-list">
-            <li class="activity-item">
-              <div class="activity-indicator"></div>
-              <p>Laptop AF-0114 - allocated to Priya shah - IT dept</p>
-            </li>
-            <li class="activity-item">
-              <div class="activity-indicator"></div>
-              <p>Room B2 - booking confirmed - 2:00 to 3:00 PM</p>
-            </li>
-            <li class="activity-item">
-              <div class="activity-indicator resolved"></div>
-              <p>Projector AF-0062 - maintenance resolved</p>
-            </li>
-          </ul>
-        </section>
       </main>
     </div>
   </div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Assets Directory</title>
+  <link rel="stylesheet" href="assetRegPage.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h1>AssetFlow</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="#">Organization setup</a></li>
+          <li class="nav-item active"><a href="assetRegPage.html">Assets</a></li>
+          <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item"><a href="#">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <div class="toolbar">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search by tag, serial, or QR code..">
+          </div>
+          <button class="btn btn-primary">+ Register Asset</button>
+        </div>
+
+        <div class="filters">
+          <select class="filter-select">
+            <option>Category</option>
+            <option>Electronics</option>
+            <option>Furniture</option>
+            <option>Vehicles</option>
+          </select>
+          <select class="filter-select">
+            <option>Status</option>
+            <option>Available</option>
+            <option>Allocated</option>
+            <option>Reserved</option>
+            <option>Under Maintenance</option>
+          </select>
+          <select class="filter-select">
+            <option>Department</option>
+            <option>IT</option>
+            <option>HR</option>
+            <option>Operations</option>
+          </select>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-semibold">AF-0012</td>
+                <td>Dell Laptop</td>
+                <td>Electronics</td>
+                <td><span class="badge badge-info">Allocated</span></td>
+                <td>bengaluru</td>
+              </tr>
+              <tr>
+                <td class="fw-semibold">AF-0062</td>
+                <td>Projector</td>
+                <td>Electronics</td>
+                <td><span class="badge badge-warning">Maintenance</span></td>
+                <td>HQ floor 2</td>
+              </tr>
+              <tr>
+                <td class="fw-semibold">AF-0201</td>
+                <td>Office chair</td>
+                <td>Furniture</td>
+                <td><span class="badge badge-success">Available</span></td>
+                <td>Warehouse</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="assetRegPage.js"></script>
+</body>
+</html>
