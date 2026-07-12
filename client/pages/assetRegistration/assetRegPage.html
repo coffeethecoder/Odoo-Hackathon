@@ -43,30 +43,39 @@
       <main class="main-content">
         <div class="toolbar">
           <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search by tag, serial, or QR code..">
+            <input type="text" class="search-input" id="search-input" placeholder="Search by tag, serial, QR code...">
           </div>
-          <button class="btn btn-primary">+ Register Asset</button>
+          <button class="btn btn-primary" id="register-btn">+ Register Asset</button>
         </div>
 
         <div class="filters">
           <select class="filter-select">
-            <option>Category</option>
-            <option>Electronics</option>
-            <option>Furniture</option>
-            <option>Vehicles</option>
+            <option value="">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="vehicles">Vehicles</option>
           </select>
           <select class="filter-select">
-            <option>Status</option>
-            <option>Available</option>
-            <option>Allocated</option>
-            <option>Reserved</option>
-            <option>Under Maintenance</option>
+            <option value="">All Statuses</option>
+            <option value="available">Available</option>
+            <option value="allocated">Allocated</option>
+            <option value="reserved">Reserved</option>
+            <option value="maintenance">Under Maintenance</option>
+            <option value="lost">Lost</option>
+            <option value="retired">Retired</option>
+            <option value="disposed">Disposed</option>
           </select>
           <select class="filter-select">
-            <option>Department</option>
-            <option>IT</option>
-            <option>HR</option>
-            <option>Operations</option>
+            <option value="">All Departments</option>
+            <option value="it">IT</option>
+            <option value="hr">HR</option>
+            <option value="ops">Operations</option>
+          </select>
+          <select class="filter-select">
+            <option value="">All Locations</option>
+            <option value="bengaluru">Bengaluru</option>
+            <option value="hq2">HQ Floor 2</option>
+            <option value="warehouse">Warehouse</option>
           </select>
         </div>
 
@@ -79,6 +88,7 @@
                 <th>Category</th>
                 <th>Status</th>
                 <th>Location</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -87,14 +97,16 @@
                 <td>Dell Laptop</td>
                 <td>Electronics</td>
                 <td><span class="badge badge-info">Allocated</span></td>
-                <td>bengaluru</td>
+                <td>Bengaluru</td>
+                <td><button class="btn-action view-history" data-id="AF-0012">History</button></td>
               </tr>
               <tr>
                 <td class="fw-semibold">AF-0062</td>
                 <td>Projector</td>
                 <td>Electronics</td>
                 <td><span class="badge badge-warning">Maintenance</span></td>
-                <td>HQ floor 2</td>
+                <td>HQ Floor 2</td>
+                <td><button class="btn-action view-history" data-id="AF-0062">History</button></td>
               </tr>
               <tr>
                 <td class="fw-semibold">AF-0201</td>
@@ -102,6 +114,7 @@
                 <td>Furniture</td>
                 <td><span class="badge badge-success">Available</span></td>
                 <td>Warehouse</td>
+                <td><button class="btn-action view-history" data-id="AF-0201">History</button></td>
               </tr>
             </tbody>
           </table>
@@ -109,6 +122,127 @@
       </main>
     </div>
   </div>
+
+  <div id="register-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+      <h3>Register New Asset</h3>
+      <form id="register-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="asset-tag">Asset Tag (Auto-generated)</label>
+            <input type="text" id="asset-tag" readonly>
+          </div>
+          <div class="form-group">
+            <label for="asset-name">Asset Name</label>
+            <input type="text" id="asset-name" required>
+          </div>
+          <div class="form-group">
+            <label for="asset-category">Category</label>
+            <select id="asset-category" required>
+              <option value="">-- Select --</option>
+              <option value="electronics">Electronics</option>
+              <option value="furniture">Furniture</option>
+              <option value="vehicles">Vehicles</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="asset-serial">Serial Number</label>
+            <input type="text" id="asset-serial" required>
+          </div>
+          <div class="form-group">
+            <label for="asset-date">Acquisition Date</label>
+            <input type="date" id="asset-date" required>
+          </div>
+          <div class="form-group">
+            <label for="asset-cost">Acquisition Cost</label>
+            <input type="number" id="asset-cost" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="asset-condition">Condition</label>
+            <select id="asset-condition">
+              <option value="new">New</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="asset-location">Location</label>
+            <input type="text" id="asset-location" required>
+          </div>
+          <div class="form-group">
+            <label for="asset-photo">Photo/Documents</label>
+            <input type="file" id="asset-photo" multiple>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="asset-shared">
+            <label for="asset-shared">Shared / Bookable</label>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="history-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+      <h3 id="history-title">Asset History</h3>
+      <div class="history-container">
+        <h4>Allocation History</h4>
+        <table class="data-table mb-lg">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Allocated To</th>
+              <th>Department</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023-01-15</td>
+              <td>Jane Doe</td>
+              <td>IT</td>
+              <td>Returned</td>
+            </tr>
+            <tr>
+              <td>2024-03-10</td>
+              <td>John Smith</td>
+              <td>Operations</td>
+              <td>Active</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h4>Maintenance History</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Issue</th>
+              <th>Cost</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023-11-20</td>
+              <td>Screen Replacement</td>
+              <td>$150.00</td>
+              <td>Resolved</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-cancel close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script src="assetRegPage.js"></script>
 </body>
 </html>

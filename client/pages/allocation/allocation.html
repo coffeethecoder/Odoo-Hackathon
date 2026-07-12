@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AssetFlow - Allocation & Transfer</title>
-  <link rel="stylesheet" href="../design-tokens.css">
-<link rel="stylesheet" href="../dashboard/dashboard.css">
-<link rel="stylesheet" href="allocation.css">
+  <link rel="stylesheet" href="allocation.css">
 </head>
 <body>
   <div class="app-container">
@@ -20,13 +18,12 @@
           </svg>
         </button>
         <div class="logo">
-          <h1>AssetFlow</h1>
+          <h2>AssetFlow</h2>
         </div>
       </div>
     </header>
 
     <div class="layout-wrapper">
-
       <div class="overlay" id="sidebar-overlay"></div>
 
       <nav class="sidebar" id="sidebar">
@@ -45,68 +42,137 @@
 
       <main class="main-content">
         <section class="section-header">
-          <h2>Asset Allocation &amp; Transfer</h2>
+          <h2>Asset Allocation & Transfer</h2>
         </section>
 
-        <!-- ASSET SELECTOR -->
         <div class="alloc-card">
-          <label class="alloc-label" for="asset-select">Asset</label>
+          <label class="alloc-label" for="asset-select">Select Asset</label>
           <select id="asset-select" class="alloc-input">
-            <option value="AF-0119" selected>AF-0119 - Dell Laptop</option>
-            <option value="AF-0120">AF-0120 - HP Monitor</option>
-            <option value="AF-0121">AF-0121 - Office Chair</option>
+            <option value="" disabled selected>-- Select an Asset --</option>
+            <option value="AF-0114">AF-0114 - MacBook Pro 16"</option>
+            <option value="AF-0115">AF-0115 - Dell Ultrasharp Monitor</option>
+            <option value="AF-0116">AF-0116 - Herman Miller Chair</option>
+            <option value="AF-0117">AF-0117 - Sony A7IV Camera</option>
           </select>
+        </div>
 
-          <!-- WARNING BANNER: shown when asset is already allocated -->
-          <div class="alert-banner" id="alloc-warning">
-            <strong>Already Allocated to Priya Shah (Engineering)</strong>
-            <span>Direct re-allocation is blocked - submit a transfer request below</span>
+        <div id="dynamic-action-area" class="hidden">
+          
+          <div id="allocate-section" class="alloc-card hidden">
+            <h3 class="card-title">Allocate Asset</h3>
+            <div class="alert-banner success-banner">
+              <strong>Asset is Available</strong>
+              <span>Ready for new allocation.</span>
+            </div>
+            <form id="allocate-form">
+              <div class="form-row">
+                <div class="form-col">
+                  <label class="alloc-label" for="alloc-employee">Assign To (Employee)</label>
+                  <select id="alloc-employee" class="alloc-input" required>
+                    <option value="" disabled selected>Select Employee...</option>
+                    <option value="Raj Patel">Raj Patel</option>
+                    <option value="Amit Singh">Amit Singh</option>
+                    <option value="Neha Gupta">Neha Gupta</option>
+                  </select>
+                </div>
+                <div class="form-col">
+                  <label class="alloc-label" for="alloc-dept">Department</label>
+                  <select id="alloc-dept" class="alloc-input" required>
+                    <option value="" disabled selected>Select Department...</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Design">Design</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-col">
+                  <label class="alloc-label" for="alloc-return-date">Expected Return Date (Optional)</label>
+                  <input type="date" id="alloc-return-date" class="alloc-input">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Allocate Asset</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="transfer-section" class="alloc-card hidden">
+            <div class="toolbar-between">
+              <h3 class="card-title">Asset Status & Transfer</h3>
+              <button type="button" class="btn btn-outline" id="btn-return-modal">Process Return</button>
+            </div>
+            
+            <div class="alert-banner warning-banner" id="alloc-warning">
+              <strong id="warning-title">Currently held by Priya Shah</strong>
+              <span id="warning-subtitle">Direct allocation is blocked. Submit a transfer request below.</span>
+            </div>
+
+            <form id="transfer-form">
+              <div class="form-row">
+                <div class="form-col">
+                  <label class="alloc-label" for="from-employee">Current Holder</label>
+                  <input type="text" id="from-employee" class="alloc-input" readonly>
+                </div>
+                <div class="form-col">
+                  <label class="alloc-label" for="to-employee">Request Transfer To</label>
+                  <select id="to-employee" class="alloc-input" required>
+                    <option value="" disabled selected>Select Employee...</option>
+                    <option value="Raj Patel">Raj Patel</option>
+                    <option value="Amit Singh">Amit Singh</option>
+                    <option value="Neha Gupta">Neha Gupta</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-col">
+                  <label class="alloc-label" for="transfer-reason">Reason for Transfer</label>
+                  <textarea id="transfer-reason" class="alloc-input alloc-textarea" required></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit Transfer Request</button>
+              </div>
+            </form>
           </div>
         </div>
 
-        <!-- TRANSFER REQUEST FORM -->
-        <div class="alloc-card">
-          <h3 class="card-title">Transfer Request</h3>
-
-          <form id="transfer-form" novalidate>
-            <div class="form-row">
-              <div class="form-col">
-                <label class="alloc-label" for="from-employee">From</label>
-                <input type="text" id="from-employee" class="alloc-input" value="Priya Shah" readonly>
-              </div>
-              <div class="form-col">
-                <label class="alloc-label" for="to-employee">To</label>
-                <select id="to-employee" class="alloc-input">
-                  <option value="" selected disabled>Select Employee...</option>
-                  <option value="arjun-nair">Arjun Nair</option>
-                  <option value="rahul-mehta">Rahul Mehta</option>
-                  <option value="sneha-kapoor">Sneha Kapoor</option>
-                </select>
-                <div class="error-msg" id="to-error">Please select an employee to transfer to.</div>
-              </div>
-            </div>
-
-            <label class="alloc-label" for="reason">Reason</label>
-            <textarea id="reason" class="alloc-input alloc-textarea" placeholder="Explain the reason for this transfer..."></textarea>
-            <div class="error-msg" id="reason-error">Please provide a reason (min 10 characters).</div>
-
-            <button type="submit" class="btn btn-primary">Submit Request</button>
-          </form>
-        </div>
-
-        <!-- ALLOCATION HISTORY -->
-        <div class="alloc-card">
-          <h3 class="card-title">Allocation History</h3>
+        <div class="alloc-card" id="history-section" class="hidden">
+          <h3 class="card-title">Asset History</h3>
           <ul class="history-list" id="history-list">
-            <li><span class="history-date">Mar 12</span> Allocated to Priya Shah - Engineering</li>
-            <li><span class="history-date">Jan 04</span> Returned by Arjun Nair - condition: good</li>
           </ul>
         </div>
-
       </main>
     </div>
   </div>
-  <script src="dashboard.js"></script>
+
+  <div id="return-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Process Asset Return</h3>
+      <form id="return-form">
+        <div class="form-group">
+          <label class="alloc-label" for="return-condition">Check-in Condition</label>
+          <select id="return-condition" class="alloc-input" required>
+            <option value="Good">Good - No damage</option>
+            <option value="Fair">Fair - Normal wear</option>
+            <option value="Poor">Poor - Needs repair</option>
+            <option value="Damaged">Damaged - Unusable</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="alloc-label" for="return-notes">Check-in Notes</label>
+          <textarea id="return-notes" class="alloc-input alloc-textarea" required></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Return</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alloc-toast" id="alloc-toast"></div>
+
   <script src="allocation.js"></script>
 </body>
 </html>
