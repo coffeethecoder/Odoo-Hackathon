@@ -6,12 +6,13 @@ const bcrypt = require("bcrypt");
 // ==========================
 const login = async (req, res) => {
     try {
+
         const { employee_id, password } = req.body;
 
-        if (!email || !password) {
+        if (!employee_id || !password) {
             return res.status(400).json({
                 success: false,
-                message: "Email and Password are required"
+                message: "Employee ID and Password are required"
             });
         }
 
@@ -23,7 +24,7 @@ const login = async (req, res) => {
         if (result.rows.length === 0) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid Email or Password"
+                message: "Invalid Employee ID or Password"
             });
         }
 
@@ -37,7 +38,7 @@ const login = async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid Email or Password"
+                message: "Invalid Employee ID or Password"
             });
         }
 
@@ -54,12 +55,14 @@ const login = async (req, res) => {
         });
 
     } catch (error) {
+
         console.error(error);
 
         return res.status(500).json({
             success: false,
             message: "Internal Server Error"
         });
+
     }
 };
 
