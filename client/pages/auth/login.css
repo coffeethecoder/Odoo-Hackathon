@@ -181,3 +181,27 @@ button:active{
         gap:0;
     }
 }
+
+.toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: #16a34a;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}

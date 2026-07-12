@@ -49,7 +49,15 @@ form.addEventListener("submit", async (e) => {
 
         if (data.success) {
 
-            alert("Account Created Successfully!");
+            sessionStorage.setItem(
+
+            "signupSuccess",
+
+            "Account created successfully! Please sign in using your credentials."
+
+        );
+
+        window.location.href = "login.html";
 
             window.location.href = "login.html";
 

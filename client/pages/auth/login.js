@@ -1,6 +1,27 @@
 const form = document.getElementById("loginForm");
 console.log("login.js loaded");
 
+const message = sessionStorage.getItem("signupSuccess");
+
+console.log(message);
+
+if (message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    sessionStorage.removeItem("signupSuccess");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 3000);
+}
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
