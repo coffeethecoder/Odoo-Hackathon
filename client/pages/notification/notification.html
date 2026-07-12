@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Notifications</title>
+  <link rel="stylesheet" href="../design-tokens.css">
+  <link rel="stylesheet" href="../dashboard/dashboard.css">
+  <link rel="stylesheet" href="notifications.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h1>AssetFlow</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="#">Organization setup</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
+          <li class="nav-item"><a href="../allocation/allocation.html">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item"><a href="#">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item active"><a href="notifications.html">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Activity Logs &amp; Notifications</h2>
+        </section>
+
+        <!-- FILTER TABS -->
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="tab-btn active" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="alerts">Alerts</button>
+          <button class="tab-btn" data-filter="approvals">Approvals</button>
+          <button class="tab-btn" data-filter="bookings">Bookings</button>
+        </div>
+
+        <!-- NOTIFICATIONS LIST -->
+        <div class="alloc-card">
+          <ul class="notif-list" id="notif-list">
+            <!-- rows injected by notifications.js -->
+          </ul>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <script src="../dashboard/dashboard.js"></script>
+  <script src="notifications.js"></script>
+</body>
+</html>
