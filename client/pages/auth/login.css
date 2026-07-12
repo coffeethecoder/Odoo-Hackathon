@@ -26,8 +26,6 @@ body{
     box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
-/* ---------- LEFT PANEL ---------- */
-
 .left{
     width:34%;
     display:flex;
@@ -48,8 +46,6 @@ body{
 .logo span{
     color:var(--color-primary-soft);
 }
-
-/* ---------- RIGHT PANEL ---------- */
 
 .right{
     flex:1;
@@ -159,7 +155,6 @@ button:active{
     color:var(--color-primary-hover);
 }
 
-/* ---------- RESPONSIVE ---------- */
 
 @media (max-width:900px){
 
