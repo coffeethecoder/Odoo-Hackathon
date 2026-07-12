@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AssetFlow - Notifications</title>
-  <link rel="stylesheet" href="../design-tokens.css">
-  <link rel="stylesheet" href="../dashboard/dashboard.css">
-  <link rel="stylesheet" href="notifications.css">
+  <link rel="stylesheet" href="notification.css">
 </head>
 <body>
   <div class="app-container">
@@ -20,13 +18,12 @@
           </svg>
         </button>
         <div class="logo">
-          <h1>AssetFlow</h1>
+          <h2>AssetFlow</h2>
         </div>
       </div>
     </header>
 
     <div class="layout-wrapper">
-
       <div class="overlay" id="sidebar-overlay"></div>
 
       <nav class="sidebar" id="sidebar">
@@ -39,13 +36,13 @@
           <li class="nav-item"><a href="../maintainanceManage/maintenanceManage.html">Maintenance</a></li>
           <li class="nav-item"><a href="../audit/audit.html">Audit</a></li>
           <li class="nav-item"><a href="../report/reports.html">Reports</a></li>
-          <li class="nav-item active"><a href="notifications.html">Notifications</a></li>
+          <li class="nav-item active"><a href="../notification/notification.html">Notifications</a></li>
         </ul>
       </nav>
 
       <main class="main-content">
         <section class="section-header">
-          <h2>Activity Logs &amp; Notifications</h2>
+          <h2>Activity logs & Notifications</h2>
         </section>
 
         <!-- FILTER TABS -->
@@ -57,16 +54,14 @@
         </div>
 
         <!-- NOTIFICATIONS LIST -->
-        <div class="alloc-card">
+        <div class="notif-container">
           <ul class="notif-list" id="notif-list">
-            <!-- rows injected by notifications.js -->
+            <!-- Rows injected by notifications.js -->
           </ul>
         </div>
-
       </main>
     </div>
   </div>
-  <script src="../dashboard/dashboard.js"></script>
-  <script src="notifications.js"></script>
+  <script src="notification.js"></script>
 </body>
 </html>
