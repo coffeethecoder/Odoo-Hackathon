@@ -128,83 +128,82 @@
             <!-- ================= Top Row ================= -->
 
             <section class="audit-top-grid">
-                <div class="audit-card">
-                    <h2>Create Audit Cycle</h2>
-                    <div class="audit-form-grid">
-                        <div class="audit-input">
-                            <label>Department</label>
-                            <select>
-                                <option>Operations</option>
-                                <option>Finance</option>
-                                <option>IT</option>
-                                <option>HR</option>
-                            </select>
-                        </div>
-
-                        <div class="audit-input">
-                            <label>Location</label>
-                            <select>
-                                <option>Building A</option>
-                                <option>Building B</option>
-                            </select>
-
-                        </div>
-
-                        <div class="audit-input">
-                            <label>Start Date</label>
-                            <input type="date">
-                        </div>
-
-                        <div class="audit-input">
-                            <label>End Date</label>
-                            <input type="date">
-                        </div>
-
-                        <div class="audit-input full-width">
-                            <label>Assign Auditors</label>
-                            <input
-                                type="text"
-                                placeholder="A. Rao, S. Iqbal">
-                        </div>
-
-                    </div>
-
-                    <button class="audit-primary-btn">
-                        Start Audit Cycle
-                    </button>
-
-                </div>
-
                 <!-- Current Audit -->
 
                 <div class="audit-card">
-                    <h2>Current Audit</h2>
-                    <div class="audit-progress-info">
-                        <span>Engineering Department</span>
-                        <span>34 / 50 Verified</span>
-                    </div>
 
-                    <div class="audit-progress-bar">
-                        <div class="audit-progress-fill"></div>
-                    </div>
+                    <h2>Create Audit Cycle</h2>
 
-                    <div class="audit-progress-stats">
-                        <div>
-                            <strong>Verified</strong>
-                            <p>143</p>
+                    <div class="audit-form-grid">
+
+                        <div class="audit-input">
+
+                            <label>Department</label>
+
+                            <select id="department">
+
+                                <option value="Operations">Operations</option>
+                                <option value="Finance">Finance</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+
+                            </select>
+
                         </div>
 
-                        <div>
-                            <strong>Missing</strong>
-                            <p>1</p>
+                        <div class="audit-input">
+
+                            <label>Location</label>
+
+                            <select id="location">
+
+                                <option value="Building A">Building A</option>
+                                <option value="Building B">Building B</option>
+
+                            </select>
+
                         </div>
 
-                        <div>
-                            <strong>Damaged</strong>
-                            <p>1</p>
+                        <div class="audit-input">
+
+                            <label>Start Date</label>
+
+                            <input
+                                type="date"
+                                id="startDate">
+
+                        </div>
+
+                        <div class="audit-input">
+
+                            <label>End Date</label>
+
+                            <input
+                                type="date"
+                                id="endDate">
+
+                        </div>
+
+                        <div class="audit-input full-width">
+
+                            <label>Assign Auditors</label>
+
+                            <input
+                                type="text"
+                                id="auditors"
+                                placeholder="A. Rao, S. Iqbal">
+
                         </div>
 
                     </div>
+
+                    <button
+                        id="startAuditBtn"
+                        class="audit-primary-btn">
+
+                        Start Audit Cycle
+
+                    </button>
 
                 </div>
 
