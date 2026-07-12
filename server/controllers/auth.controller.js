@@ -1,10 +1,12 @@
 const pool = require("../config/db");
 const bcrypt = require("bcrypt");
 
-
+// ==========================
+// LOGIN
+// ==========================
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { employee_id, password } = req.body;
 
         if (!email || !password) {
             return res.status(400).json({
@@ -14,8 +16,8 @@ const login = async (req, res) => {
         }
 
         const result = await pool.query(
-            "SELECT * FROM users WHERE email = $1",
-            [email]
+            "SELECT * FROM users WHERE employee_id = $1",
+            [employee_id]
         );
 
         if (result.rows.length === 0) {
@@ -59,7 +61,11 @@ const login = async (req, res) => {
             message: "Internal Server Error"
         });
     }
-}
+};
+
+// ==========================
+// REGISTER
+// ==========================
 const register = async (req, res) => {
     try {
 
@@ -95,6 +101,7 @@ const register = async (req, res) => {
             });
         }
 
+        // Check duplicate Employee ID
         const employeeExists = await pool.query(
             "SELECT * FROM users WHERE employee_id = $1",
             [employee_id]
@@ -107,6 +114,7 @@ const register = async (req, res) => {
             });
         }
 
+        // Check duplicate Email
         const emailExists = await pool.query(
             "SELECT * FROM users WHERE email = $1",
             [email]
@@ -119,9 +127,26 @@ const register = async (req, res) => {
             });
         }
 
-        return res.status(200).json({
+        // Hash Password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert User
+        await pool.query(
+            `INSERT INTO users
+            (full_name, employee_id, department, email, password_hash)
+            VALUES ($1, $2, $3, $4, $5)`,
+            [
+                full_name,
+                employee_id,
+                department,
+                email,
+                hashedPassword
+            ]
+        );
+
+        return res.status(201).json({
             success: true,
-            message: "Validation Successful"
+            message: "Account created successfully"
         });
 
     } catch (error) {
