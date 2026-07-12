@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Maintenance Management</title>
+  <link rel="stylesheet" href="maintenanceManage.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h2>AssetFlow</h2>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="../organization/organization.html">Organization setup</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
+          <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item active"><a href="maintenanceManage.html">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Maintenance Management (Approval Workflow)</h2>
+        </section>
+
+        <div class="kanban-board">
+          
+          <div class="kanban-column">
+            <div class="kanban-column-header">Pending</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card" draggable="true">
+                <strong>AF-0062</strong>
+                <p>Projector bulb not turning on</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-column-header">Approved</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card" draggable="true">
+                <strong>AF-003</strong>
+                <p>ac unit noisy compresor</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-column-header">Technician assigned</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card" draggable="true">
+                <strong>AF-0078</strong>
+                <p>forlift</p>
+                <p class="tech-name">tech: R varma</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-column-header">In progress</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card" draggable="true">
+                <strong>AF-897</strong>
+                <p>Printer Jam parts ordered</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-column-header">Resolved</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card resolved" draggable="true">
+                <strong>AF-873</strong>
+                <p>Chair repair resolved 7 Jul</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="maintenanceManage.js"></script>
+</body>
+</html>

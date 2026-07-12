@@ -4,137 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AssetFlow - Organization Setup</title>
-
   <link rel="stylesheet" href="organization.css">
 </head>
-
 <body>
-
-<div class="app-container">
-
-  <header class="top-header">
-    <div class="logo">
-      <h1>AssetFlow</h1>
-    </div>
-  </header>
-
-  <div class="layout-wrapper">
-
-    <nav class="sidebar">
-      <ul class="nav-list">
-
-        <li class="nav-item">
-          <a href="dashboard.html">Dashboard</a>
-        </li>
-
-        <li class="nav-item active">
-          <a href="organization.html">Organization Setup</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Assets</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Allocation & Transfer</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Resource Booking</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Maintenance</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Audit</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Reports</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#">Notifications</a>
-        </li>
-
-      </ul>
-    </nav>
-
-    <main class="main-content">
-
-      <section class="section-header">
-        <h2>Organization Setup</h2>
-      </section>
-
-      <div class="tabs">
-
-        <button class="tab active">Departments</button>
-
-        <button class="tab">Categories</button>
-
-        <button class="tab">Employees</button>
-
-        <button class="btn btn-primary add-btn">
-          + Add
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
-
+        <div class="logo">
+          <h2>AssetFlow</h2>
+        </div>
       </div>
+    </header>
 
-      <div class="table-container">
+    <div class="layout-wrapper">
+      <div class="overlay" id="sidebar-overlay"></div>
 
-        <table>
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-item active"><a href="organization.html">Organization setup</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
+          <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item"><a href="../maintainanceManage/maintenanceManage.html">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
 
-          <thead>
-            <tr>
-              <th>Department</th>
-              <th>Head</th>
-              <th>Parent Dept</th>
-              <th>Status</th>
-            </tr>
-          </thead>
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Organization Setup</h2>
+        </section>
 
-          <tbody>
+        <div class="tabs">
+          <button class="tab active">Departments</button>
+          <button class="tab">Categories</button>
+          <button class="tab">Employees</button>
+          <button class="btn btn-primary add-btn">+ Add</button>
+        </div>
 
-            <tr>
-              <td>Engineering</td>
-              <td>Aditi Rao</td>
-              <td>--</td>
-              <td><span class="status active">Active</span></td>
-            </tr>
-
-            <tr>
-              <td>Facilities</td>
-              <td>Rohan Mehta</td>
-              <td>--</td>
-              <td><span class="status active">Active</span></td>
-            </tr>
-
-            <tr>
-              <td>Field Ops (East)</td>
-              <td>Sara Iqbal</td>
-              <td>Field Ops</td>
-              <td><span class="status inactive">Inactive</span></td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-      <p class="note">
-        Editing a department here also updates the dropdowns in Assets and Allocation screens.
-      </p>
-
-    </main>
-
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Head</th>
+                <th>Parent Dept</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Engineering</td>
+                <td>Aditi Rao</td>
+                <td>--</td>
+                <td><span class="status active">Active</span></td>
+              </tr>
+              <tr>
+                <td>Facilities</td>
+                <td>Rohan Mehta</td>
+                <td>--</td>
+                <td><span class="status active">Active</span></td>
+              </tr>
+              <tr>
+                <td>Field Ops (East)</td>
+                <td>Sara Iqbal</td>
+                <td>Field Ops</td>
+                <td><span class="status inactive">Inactive</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
   </div>
 
-</div>
-
-<script src="dashboard.js"></script>
-
+  <script src="organization.js"></script>
 </body>
 </html>
