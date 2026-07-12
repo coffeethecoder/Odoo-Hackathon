@@ -91,31 +91,7 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="fw-semibold">AF-0012</td>
-                <td>Dell Laptop</td>
-                <td>Electronics</td>
-                <td><span class="badge badge-info">Allocated</span></td>
-                <td>Bengaluru</td>
-                <td><button class="btn-action view-history" data-id="AF-0012">History</button></td>
-              </tr>
-              <tr>
-                <td class="fw-semibold">AF-0062</td>
-                <td>Projector</td>
-                <td>Electronics</td>
-                <td><span class="badge badge-warning">Maintenance</span></td>
-                <td>HQ Floor 2</td>
-                <td><button class="btn-action view-history" data-id="AF-0062">History</button></td>
-              </tr>
-              <tr>
-                <td class="fw-semibold">AF-0201</td>
-                <td>Office chair</td>
-                <td>Furniture</td>
-                <td><span class="badge badge-success">Available</span></td>
-                <td>Warehouse</td>
-                <td><button class="btn-action view-history" data-id="AF-0201">History</button></td>
-              </tr>
+            <tbody id="assetTableBody">
             </tbody>
           </table>
         </div>
@@ -127,6 +103,7 @@
     <div class="modal-content large-modal">
       <h3>Register New Asset</h3>
       <form id="register-form">
+        
         <div class="form-grid">
           <div class="form-group">
             <label for="asset-tag">Asset Tag (Auto-generated)</label>
@@ -144,6 +121,22 @@
               <option value="furniture">Furniture</option>
               <option value="vehicles">Vehicles</option>
             </select>
+          </div>
+          <div class="form-group">
+              <label for="asset-department">Department</label>
+              <select id="asset-department" required>
+                  <option value="">-- Select --</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="IT">IT</option>
+                  <option value="Finance">Finance</option>
+                  <option value="HR">HR</option>
+                  <option value="Operations">Operations</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="asset-serial">Serial Number</label>
+              <input type="text" id="asset-serial" required>
           </div>
           <div class="form-group">
             <label for="asset-serial">Serial Number</label>
@@ -168,7 +161,19 @@
           </div>
           <div class="form-group">
             <label for="asset-location">Location</label>
-            <input type="text" id="asset-location" required>
+            <select id="asset-location">
+
+              <option value="">-- Select --</option>
+
+              <option>Building A</option>
+
+              <option>Building B</option>
+
+              <option>Warehouse</option>
+
+              <option>HQ Floor 2</option>
+
+          </select>
           </div>
           <div class="form-group">
             <label for="asset-photo">Photo/Documents</label>
