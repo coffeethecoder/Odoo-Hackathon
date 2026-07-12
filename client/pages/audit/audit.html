@@ -219,56 +219,22 @@
                         placeholder="Search asset...">
                 </div>
                 <table class="audit-table">
+
                     <thead>
-                    <tr>
-                        <th>Asset</th>
-                        <th>Expected Location</th>
-                        <th>Status</th>
-                    </tr>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Expected Location</th>
+                            <th>Status</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>AF-003 Dell Laptop</td>
-                        <td>Desk E12</td>
-                        <td>
-                            <select>
-                                <option selected>Verified</option>
-                                <option>Missing</option>
-                                <option>Damaged</option>
-                            </select>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>AF-9921 Office Chair</td>
-                        <td>Desk E14</td>
-                        <td>
-                            <select>
-                                <option>Verified</option>
-                                <option selected>Missing</option>
-                                <option>Damaged</option>
-                            </select>
-                        </td>
-                    </tr>
+                    <tbody id="assetTableBody">
 
-                    <tr>
-                        <td>AF-9838 Monitor</td>
-                        <td>Desk E15</td>
-                        <td>
-                            <select>
-                                <option>Verified</option>
-                                <option>Missing</option>
-                                <option selected>Damaged</option>
-                            </select>
-
-                        </td>
-
-                    </tr>
+                        <!-- Assets will be loaded from the database -->
 
                     </tbody>
 
                 </table>
-
             </section>
 
             <!-- ================= Bottom ================= -->
