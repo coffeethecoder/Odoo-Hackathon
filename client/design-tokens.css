@@ -1,32 +1,19 @@
-/**
- * Somaiya Vidyavihar University Design System
- * -------------------------------------------------------------
- * CORE DESIGN TOKENS
- * -------------------------------------------------------------
- * This file contains all CSS custom properties mapping the brand color scheme,
- * typography scale, dynamic spacing grid, border radius scale, elevation shadows,
- * and responsive variables.
- *
- * For collaborative student projects, link this stylesheet first to easily consume
- * consistent, scalable system-wide variables.
- */
+
 
 :root {
   /* -----------------------------------------------------------
    * Primary Color Tones (Calculated dynamically)
    * ----------------------------------------------------------- */
-  --color-primary: #b7202e;
-  --color-primary-hover: #931926;
-  --color-primary-active: #78141e;
-  --color-primary-soft: #ffd5d9;
-  --color-primary-soft-border: #d22637;
+  --color-primary: #8f5280;
+  --color-primary-hover: #704064;
+  --color-primary-active: #6e3761;
+  --color-primary-soft: #d4a1c7;
+  --color-primary-soft-border: #951da0;
 
-  --color-vitality: #ed1c24;
-
-  --color-secondary: #d97706;
-  --color-secondary-hover: #d57e1b;
-  --color-secondary-active: #b25f00;
-  --color-secondary-soft: #f6cd9f;
+  --color-secondary: #bdbdbd;
+  --color-secondary-hover: #a5a5a5;
+  --color-secondary-active: #919191;
+  --color-secondary-soft: #d4cad2;
 
   /* -----------------------------------------------------------
    * Typography System
@@ -78,9 +65,6 @@
   --ls-normal: 0em;
   --ls-wide: 0.025em;
 
-  /* -----------------------------------------------------------
-   * Spacing System (4px Base Grid)
-   * ----------------------------------------------------------- */
   --space-2xs: 0.25rem; /* 4px */
   --space-xs: 0.5rem; /* 8px */
   --space-sm: 0.75rem; /* 12px */
@@ -90,10 +74,7 @@
   --space-2xl: 3rem; /* 48px */
   --space-3xl: 4rem; /* 64px */
 
-  /* -----------------------------------------------------------
-   *Border Radius System (Can be customized via playground)
-   * ----------------------------------------------------------- */
-  --radius-factor: 1; /* Modifier multiplier for global softness adjustment */
+  --radius-factor: 1;
 
   --radius-xs: calc(4px * var(--radius-factor));
   --radius-sm: calc(6px * var(--radius-factor));
@@ -102,17 +83,10 @@
   --radius-xl: calc(24px * var(--radius-factor));
   --radius-full: 9999px;
 
-  /* -----------------------------------------------------------
-   * Transition & Animation Timing
-   * ----------------------------------------------------------- */
   --transition-fast: 0.12s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* -----------------------------------------------------------
-   * Light Theme Color Mappings (Default State)
-   * ----------------------------------------------------------- */
-  /* Semantic Alerts */
   --color-success: #059669;
   --color-success-soft: #ecfdf5;
   --color-success-border: #a7f3d0;
@@ -133,22 +107,20 @@
   --color-info-border: #bfdbfe;
   --color-info-text: #1d4ed8;
 
-  /* Core UI Colors */
-  --color-background: #f8fafc; /* Sleek Light Blue-Gray Background */
-  --color-surface: #ffffff; /* Pure White Surfaces */
-  --color-surface-hover: #f1f5f9; /* Light Gray hover overlay */
-  --color-surface-active: #e2e8f0; /* Darker Gray click overlay */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-surface-active: #e2e8f0;
 
-  --color-text-primary: #231f20; /* #231F20 - SVU Pantone Dark Gray */
-  --color-text-secondary: #58595b; /* #58595B - SVU Pantone Cool Gray */
-  --color-text-tertiary: #808285; /* Medium Gray for captions/subtext */
-  --color-text-on-primary: #ffffff; /* Contrast white text on Primary colors */
+  --color-text-primary: #231f20;
+  --color-text-secondary: #58595b;
+  --color-text-tertiary: #808285;
+  --color-text-on-primary: #ffffff;
 
-  --color-border: #c5cacf; /* Slate 200 light grid borders */
-  --color-border-hover: #cbd5e1; /* Slate 300 active input border hover */
-  --color-border-active: #94a3b8; /* Slate 400 active interactive border */
+  --color-border: #c5cacf;
+  --color-border-hover: #cbd5e1;
+  --color-border-active: #94a3b8;
 
-  /* Shadow & Elevation Mappings (Based on Dark Slate shadow projections) */
   --color-shadow-base: 15, 23, 42;
 
   --shadow-sm: 0 1px 2px 0 rgba(var(--color-shadow-base), 0.05);
