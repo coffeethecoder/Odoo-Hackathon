@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Allocation & Transfer</title>
+  <link rel="stylesheet" href="../design-tokens.css">
+<link rel="stylesheet" href="../dashboard/dashboard.css">
+<link rel="stylesheet" href="allocation.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h1>AssetFlow</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="#">Organization setup</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
+          <li class="nav-item active"><a href="allocation.html">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item"><a href="#">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Asset Allocation &amp; Transfer</h2>
+        </section>
+
+        <!-- ASSET SELECTOR -->
+        <div class="alloc-card">
+          <label class="alloc-label" for="asset-select">Asset</label>
+          <select id="asset-select" class="alloc-input">
+            <option value="AF-0119" selected>AF-0119 - Dell Laptop</option>
+            <option value="AF-0120">AF-0120 - HP Monitor</option>
+            <option value="AF-0121">AF-0121 - Office Chair</option>
+          </select>
+
+          <!-- WARNING BANNER: shown when asset is already allocated -->
+          <div class="alert-banner" id="alloc-warning">
+            <strong>Already Allocated to Priya Shah (Engineering)</strong>
+            <span>Direct re-allocation is blocked - submit a transfer request below</span>
+          </div>
+        </div>
+
+        <!-- TRANSFER REQUEST FORM -->
+        <div class="alloc-card">
+          <h3 class="card-title">Transfer Request</h3>
+
+          <form id="transfer-form" novalidate>
+            <div class="form-row">
+              <div class="form-col">
+                <label class="alloc-label" for="from-employee">From</label>
+                <input type="text" id="from-employee" class="alloc-input" value="Priya Shah" readonly>
+              </div>
+              <div class="form-col">
+                <label class="alloc-label" for="to-employee">To</label>
+                <select id="to-employee" class="alloc-input">
+                  <option value="" selected disabled>Select Employee...</option>
+                  <option value="arjun-nair">Arjun Nair</option>
+                  <option value="rahul-mehta">Rahul Mehta</option>
+                  <option value="sneha-kapoor">Sneha Kapoor</option>
+                </select>
+                <div class="error-msg" id="to-error">Please select an employee to transfer to.</div>
+              </div>
+            </div>
+
+            <label class="alloc-label" for="reason">Reason</label>
+            <textarea id="reason" class="alloc-input alloc-textarea" placeholder="Explain the reason for this transfer..."></textarea>
+            <div class="error-msg" id="reason-error">Please provide a reason (min 10 characters).</div>
+
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+          </form>
+        </div>
+
+        <!-- ALLOCATION HISTORY -->
+        <div class="alloc-card">
+          <h3 class="card-title">Allocation History</h3>
+          <ul class="history-list" id="history-list">
+            <li><span class="history-date">Mar 12</span> Allocated to Priya Shah - Engineering</li>
+            <li><span class="history-date">Jan 04</span> Returned by Arjun Nair - condition: good</li>
+          </ul>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+  <script src="allocation.js"></script>
+</body>
+</html>
