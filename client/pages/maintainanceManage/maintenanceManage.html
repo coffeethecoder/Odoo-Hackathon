@@ -41,67 +41,118 @@
       </nav>
 
       <main class="main-content">
-        <section class="section-header">
-          <h2>Maintenance Management (Approval Workflow)</h2>
+        <section class="section-header toolbar-between">
+          <h2>Maintenance Management</h2>
+          <button class="btn btn-primary" id="btn-raise-request">Raise Request</button>
         </section>
 
+        <!-- Kanban Board -->
         <div class="kanban-board">
-          
-          <div class="kanban-column">
+          <div class="kanban-column" id="col-pending">
             <div class="kanban-column-header">Pending</div>
             <div class="kanban-cards-container">
-              <div class="kanban-card" draggable="true">
+              <div class="kanban-card" draggable="true" data-asset="AF-0062">
                 <strong>AF-0062</strong>
+                <span class="badge badge-medium">Medium</span>
                 <p>Projector bulb not turning on</p>
               </div>
             </div>
           </div>
 
-          <div class="kanban-column">
+          <div class="kanban-column" id="col-approved">
             <div class="kanban-column-header">Approved</div>
             <div class="kanban-cards-container">
-              <div class="kanban-card" draggable="true">
-                <strong>AF-003</strong>
-                <p>ac unit noisy compresor</p>
+              <div class="kanban-card" draggable="true" data-asset="AF-0034">
+                <strong>AF-0034</strong>
+                <span class="badge badge-high">High</span>
+                <p>AC unit noisy compressor</p>
               </div>
             </div>
           </div>
-
-          <div class="kanban-column">
-            <div class="kanban-column-header">Technician assigned</div>
+          
+          <div class="kanban-column" id="col-rejected">
+            <div class="kanban-column-header">Rejected</div>
             <div class="kanban-cards-container">
-              <div class="kanban-card" draggable="true">
+            </div>
+          </div>
+
+          <div class="kanban-column" id="col-technician">
+            <div class="kanban-column-header">Technician Assigned</div>
+            <div class="kanban-cards-container">
+              <div class="kanban-card" draggable="true" data-asset="AF-0078">
                 <strong>AF-0078</strong>
-                <p>forlift</p>
-                <p class="tech-name">tech: R varma</p>
+                <span class="badge badge-high">High</span>
+                <p>Forklift hydraulics issue</p>
+                <p class="tech-name">Tech: R. Varma</p>
               </div>
             </div>
           </div>
 
-          <div class="kanban-column">
-            <div class="kanban-column-header">In progress</div>
+          <div class="kanban-column" id="col-inprogress">
+            <div class="kanban-column-header">In Progress</div>
             <div class="kanban-cards-container">
-              <div class="kanban-card" draggable="true">
-                <strong>AF-897</strong>
-                <p>Printer Jam parts ordered</p>
+              <div class="kanban-card" draggable="true" data-asset="AF-0897">
+                <strong>AF-0897</strong>
+                <span class="badge badge-low">Low</span>
+                <p>Printer jam parts ordered</p>
               </div>
             </div>
           </div>
 
-          <div class="kanban-column">
+          <div class="kanban-column" id="col-resolved">
             <div class="kanban-column-header">Resolved</div>
             <div class="kanban-cards-container">
-              <div class="kanban-card resolved" draggable="true">
-                <strong>AF-873</strong>
+              <div class="kanban-card resolved" draggable="true" data-asset="AF-0873">
+                <strong>AF-0873</strong>
+                <span class="badge badge-medium">Medium</span>
                 <p>Chair repair resolved 7 Jul</p>
               </div>
             </div>
           </div>
-
         </div>
       </main>
     </div>
   </div>
+
+  <!-- Raise Request Modal -->
+  <div id="request-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Raise Maintenance Request</h3>
+      <form id="request-form">
+        <div class="form-group">
+          <label class="form-label" for="req-asset">Select Asset</label>
+          <select id="req-asset" class="form-input" required>
+            <option value="" disabled selected>Select an Asset...</option>
+            <option value="AF-0114">AF-0114 - MacBook Pro 16"</option>
+            <option value="AF-0115">AF-0115 - Dell Ultrasharp Monitor</option>
+            <option value="AF-0116">AF-0116 - Herman Miller Chair</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="req-priority">Priority</label>
+          <select id="req-priority" class="form-input" required>
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="req-issue">Describe Issue</label>
+          <textarea id="req-issue" class="form-input form-textarea" placeholder="Detailed description of the problem..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="req-photo">Attach Photo (Optional)</label>
+          <input type="file" id="req-photo" class="form-input" accept="image/*">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="maintenance-toast"></div>
 
   <script src="maintenanceManage.js"></script>
 </body>
