@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Reports & Analytics</title>
+  <link rel="stylesheet" href="reports.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h2>AssetFlow</h2>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="../dashboard/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="../organization/organization.html">Organization setup</a></li>
+          <li class="nav-item"><a href="../assetRegistration/assetRegPage.html">Assets</a></li>
+          <li class="nav-item"><a href="../allocation/allocation.html">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="../booking/booking.html">Resource Booking</a></li>
+          <li class="nav-item"><a href="../maintenance/maintenance.html">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item active"><a href="reports.html">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Reports & Analytics</h2>
+        </section>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Utilization by department</h3>
+            <div class="chart-container">
+              <canvas id="utilizationChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Maintenance Frequency</h3>
+            <div class="chart-container">
+              <canvas id="maintenanceChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-section">
+            <h3>Most used assets</h3>
+            <ul class="asset-list">
+              <li><strong>Room B2:</strong> 34 booking this month</li>
+              <li><strong>Van AF-343:</strong> 21 trips this month</li>
+              <li><strong>Projector AF-335:</strong> 18 uses</li>
+            </ul>
+          </div>
+          
+          <div class="info-section">
+            <h3>Idle assets</h3>
+            <ul class="asset-list">
+              <li><strong>Camera AF-0301:</strong> unused 60+ days</li>
+              <li><strong>Chair AF-0410:</strong> unused 45 days</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="info-section full-width">
+          <h3>Assets due for maintenance / nearing retirement</h3>
+          <ul class="asset-list">
+            <li><strong>Forklift AF-0087:</strong> service due in 5 days</li>
+            <li><strong>Laptop AF-0020:</strong> 4 years old : nearing retirement</li>
+          </ul>
+          
+          <button class="btn btn-secondary mt-xl" id="export-btn">Export report</button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="reports.js"></script>
+</body>
+</html>
