@@ -4,7 +4,7 @@ const pool = require("./config/db");
 const authRoutes = require("./routes/auth.routes");
 const auditRoutes = require("./routes/audit.routes");
 const assetRoutes = require("./routes/assets.routes");
-
+const bookingRoutes = require("./routes/booking.routes");
 require("dotenv").config();
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/audit", auditRoutes);
 app.use("/api/assets", assetRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 app.get("/", async (req, res) => {
   try {
