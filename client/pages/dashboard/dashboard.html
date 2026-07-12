@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AssetFlow - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-header">
+      <div class="logo">
+        <h1>AssetFlow</h1>
+      </div>
+    </header>
+
+    <div class="layout-wrapper">
+      
+      <nav class="sidebar">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item active"><a href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a href="#">Organization setup</a></li>
+          <li class="nav-item"><a href="#">Assets</a></li>
+          <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
+          <li class="nav-item"><a href="#">Resource Booking</a></li>
+          <li class="nav-item"><a href="#">Maintenance</a></li>
+          <li class="nav-item"><a href="#">Audit</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Notifications</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <section class="section-header">
+          <h2>Today's Overview</h2>
+        </section>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-label">Available</span>
+            <span class="kpi-value" id="available">0</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Allocated</span>
+            <span class="kpi-value" id="allocated">0</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Maintenance Today</span>
+            <span class="kpi-value" id="maintainance">0</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Active Bookings</span>
+            <span class="kpi-value" id="active-bookings">0</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Pending Transfers</span>
+            <span class="kpi-value" id="pending-transfers">0</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Upcoming returns</span>
+            <span class="kpi-value" id="upcoming-returns">0</span>
+          </div>
+        </div>
+
+        <div class="alert-banner error">
+          <div class="alert-content">
+            <p><strong>3 assets overdue for return</strong> - flagged for follow-up</p>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="alert('Registering asset...')">+ register asset</button>
+          <button class="btn btn-secondary" onclick="alert('Opening resource booking...')">Book resource</button>
+          <button class="btn btn-secondary" onclick="alert('Raising maintenance request...')">Raise requests</button>
+        </div>
+
+        <section class="recent-activity">
+          <h2>Recent Activity</h2>
+          <ul class="activity-list">
+            <li class="activity-item">
+              <div class="activity-indicator"></div>
+              <p></p>
+            </li>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
