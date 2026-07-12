@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AssetFlow | Resource Booking</title>
+
+    <link rel="stylesheet" href="booking.css">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+
+
+    <header class="top-header">
+
+        <div class="header-left">
+
+            <button class="menu-toggle">
+
+                ☰
+
+            </button>
+
+            <div class="logo">
+
+                <h1>AssetFlow</h1>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="layout-wrapper">
+
+        <nav class="sidebar">
+
+            <ul class="nav-list">
+
+                <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+
+                <li class="nav-item"><a href="#">Organization Setup</a></li>
+
+                <li class="nav-item"><a href="#">Assets</a></li>
+
+                <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
+
+                <li class="nav-item active"><a href="#">Resource Booking</a></li>
+
+                <li class="nav-item"><a href="#">Maintenance</a></li>
+
+                <li class="nav-item"><a href="#">Audit</a></li>
+
+                <li class="nav-item"><a href="#">Reports</a></li>
+
+                <li class="nav-item"><a href="#">Notifications</a></li>
+
+            </ul>
+
+        </nav>
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <h2>Resource Booking</h2>
+
+                    <p>
+                        Reserve laptops and office equipment.
+                    </p>
+
+                </div>
+
+                <button id="newBooking">
+
+                    + New Booking
+
+                </button>
+
+            </section>
+
+            <!-- Search -->
+
+            <section class="search-bar">
+
+                <input
+                        type="text"
+                        placeholder="Search assets by name or Asset ID...">
+
+            </section>
+
+            <!-- Categories -->
+
+            <section class="categories">
+
+                <button class="category active">💻 Laptops</button>
+
+                <button class="category">🖥️ Monitors</button>
+
+                <button class="category">📽️ Projectors</button>
+
+                <button class="category">📷 Cameras</button>
+
+                <button class="category">🎧 Headsets</button>
+
+                <button class="category">📱 Tablets</button>
+
+            </section>
+
+            <!-- Resource Cards -->
+
+            <section class="resource-grid">
+
+                <!-- Card -->
+
+                <div class="resource-card">
+
+                    <div class="status available">
+
+                        Available
+
+                    </div>
+
+                    <h3>
+
+                        Dell Latitude 7420
+
+                    </h3>
+
+                    <p>
+
+                        Asset ID : LAP-1042
+
+                    </p>
+
+                    <p>
+
+                        Location : IT Department
+
+                    </p>
+
+                    <p>
+
+                        Condition : Excellent
+
+                    </p>
+
+                    <div class="card-buttons">
+
+                        <button class="secondary">
+
+                            View Schedule
+
+                        </button>
+
+                        <button class="primary">
+
+                            Book Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="resource-card">
+
+                    <div class="status booked">
+
+                        Booked
+
+                    </div>
+
+                    <h3>
+
+                        MacBook Pro M2
+
+                    </h3>
+
+                    <p>
+
+                        Asset ID : LAP-1007
+
+                    </p>
+
+                    <p>
+
+                        Next Available : Tomorrow
+
+                    </p>
+
+                    <p>
+
+                        Location : Media Lab
+
+                    </p>
+
+                    <div class="card-buttons">
+
+                        <button class="secondary">
+
+                            View Schedule
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="resource-card">
+
+                    <div class="status available">
+
+                        Available
+
+                    </div>
+
+                    <h3>
+
+                        HP EliteBook 840
+
+                    </h3>
+
+                    <p>
+
+                        Asset ID : LAP-1058
+
+                    </p>
+
+                    <p>
+
+                        Location : IT Department
+
+                    </p>
+
+                    <p>
+
+                        Condition : Good
+
+                    </p>
+
+                    <div class="card-buttons">
+
+                        <button class="secondary">
+
+                            View Schedule
+
+                        </button>
+
+                        <button class="primary">
+
+                            Book Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Timeline -->
+
+            <section class="timeline-card">
+
+                <div class="timeline-header">
+
+                    <h3>
+
+                        Dell Latitude 7420 Availability
+
+                    </h3>
+
+                    <span>
+
+                        Today
+
+                    </span>
+
+                </div>
+
+                <div class="timeline">
+
+                    <div class="time-slot booked">
+
+                        09:00 - 10:00
+
+                    </div>
+
+                    <div class="time-slot free">
+
+                        10:00 - 11:00
+
+                    </div>
+
+                    <div class="time-slot booked">
+
+                        11:00 - 12:30
+
+                    </div>
+
+                    <div class="time-slot free">
+
+                        12:30 - 2:00
+
+                    </div>
+
+                    <div class="time-slot booked">
+
+                        2:00 - 4:00
+
+                    </div>
+
+                    <div class="time-slot free">
+
+                        4:00 - 6:00
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Recent Bookings -->
+
+            <section class="booking-table">
+
+                <h3>
+
+                    Recent Bookings
+
+                </h3>
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Asset</th>
+
+                        <th>Employee</th>
+
+                        <th>Borrow Date</th>
+
+                        <th>Return Date</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+
+                        <td>Dell Latitude 7420</td>
+
+                        <td>John Doe</td>
+
+                        <td>12 Jul</td>
+
+                        <td>14 Jul</td>
+
+                        <td>
+
+                            <span class="badge ongoing">
+
+                                Ongoing
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Projector X2</td>
+
+                        <td>Sarah</td>
+
+                        <td>15 Jul</td>
+
+                        <td>15 Jul</td>
+
+                        <td>
+
+                            <span class="badge upcoming">
+
+                                Upcoming
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Canon DSLR</td>
+
+                        <td>Alex</td>
+
+                        <td>10 Jul</td>
+
+                        <td>12 Jul</td>
+
+                        <td>
+
+                            <span class="badge completed">
+
+                                Completed
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+<!-- Booking Modal -->
+
+<div class="modal" id="bookingModal">
+
+    <div class="modal-content">
+
+        <h3>
+
+            Book Resource
+
+        </h3>
+
+        <form>
+
+            <label>Employee ID</label>
+
+            <input type="text">
+
+            <label>Purpose</label>
+
+            <textarea rows="3"></textarea>
+
+            <label>Borrow Date</label>
+
+            <input type="date">
+
+            <label>Return Date</label>
+
+            <input type="date">
+
+            <label>Time</label>
+
+            <input type="time">
+
+            <div class="modal-buttons">
+
+                <button type="button">
+
+                    Cancel
+
+                </button>
+
+                <button type="submit">
+
+                    Confirm Booking
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="booking.js"></script>
+
+</body>
+
+</html>
