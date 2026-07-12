@@ -49,40 +49,42 @@ h1, h2, h3 {
 
 .sidebar {
     width: 250px;
-    background: var(--color-surface);
+    background-color: var(--color-surface);
     border-right: 1px solid var(--color-border);
     padding: var(--space-lg) var(--space-md);
     overflow-y: auto;
     transition: transform 0.3s ease;
-}
-
-.nav-list {
+    z-index: 20;
+  }
+  
+  .nav-list {
     list-style: none;
-}
-
-.nav-item {
-    margin-bottom: 8px;
-}
-
-.nav-item a {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .nav-item a {
     display: block;
     text-decoration: none;
     color: var(--color-text-secondary);
-    padding: 12px 16px;
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-md);
+    font-weight: var(--fw-medium);
     transition: all 0.2s ease;
-}
-
-.nav-item a:hover {
-    background: var(--color-surface-hover);
-    color: var(--color-primary);
-}
-
-.nav-item.active a {
-    background: var(--color-primary-soft);
+  }
+  
+  .nav-item a:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text-primary);
+  }
+  
+  .nav-item.active a {
+    background-color: var(--color-primary-soft);
     color: var(--color-primary-active);
     font-weight: var(--fw-semibold);
-}
+    border: 1px solid var(--color-primary-soft-border);
+  }
 
 .main-content {
     flex: 1;
