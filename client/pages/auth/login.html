@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AssetFlow | Employee Signup</title>
+
+    <link rel="stylesheet" href="css/signup.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Section -->
+
+    <div class="left">
+
+        <div class="logo">
+            Asset<span>Flow</span>
+        </div>
+
+    </div>
+
+    <!-- Right Section -->
+
+    <div class="right">
+
+        <h2>Create Employee Account</h2>
+
+        <p class="subtitle">
+            Sign up using your official company email.
+        </p>
+
+        <form>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+                    <label>Employee ID</label>
+                    <input type="text" placeholder="EMP1001" required>
+                </div>
+
+                <div class="input-group">
+
+                    <label>Department</label>
+
+                    <select required>
+                        <option selected disabled>Select Department</option>
+                        <option>IT</option>
+                        <option>Finance</option>
+                        <option>HR</option>
+                        <option>Marketing</option>
+                        <option>Operations</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+                <label>Official Email</label>
+                <input type="email"
+                       placeholder="employee@company.com"
+                       required>
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" required>
+                </div>
+
+            </div>
+
+            <button type="submit">Create Account</button>
+
+        </form>
+
+        <div class="login">
+            Already have an account?
+            <a href="login.html">Sign In</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
