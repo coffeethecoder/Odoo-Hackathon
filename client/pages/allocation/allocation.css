@@ -1,0 +1,144 @@
+@import '../../design-tokens.css';
+
+.alloc-card {
+  background: #161616;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #f2f2f2;
+}
+
+.alloc-label {
+  display: block;
+  font-size: 13px;
+  color: #9a9a9a;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.alloc-label:first-of-type {
+  margin-top: 0;
+}
+
+.alloc-input {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #f2f2f2;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.alloc-input:focus {
+  outline: none;
+  border-color: #5a9bd8;
+}
+
+.alloc-input[readonly] {
+  color: #8a8a8a;
+  cursor: not-allowed;
+}
+
+.alloc-textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.alert-banner {
+  margin-top: 16px;
+  background: #4a1414;
+  border: 1px solid #7a2020;
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #f1b4b4;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alert-banner strong {
+  color: #ff8a8a;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.error-msg {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+
+.alloc-input.invalid {
+  border-color: #ff6b6b;
+}
+
+#transfer-form .btn-primary {
+  margin-top: 20px;
+  background: #1e5c2f;
+  border: 1px solid #2c7a3f;
+  color: #d9f2df;
+}
+
+#transfer-form .btn-primary:hover {
+  background: #24713a;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #2c2c2c;
+}
+
+.history-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #2c2c2c;
+  font-size: 13px;
+  color: #cfcfcf;
+}
+
+.history-list li:last-child {
+  border-bottom: none;
+}
+
+.history-date {
+  color: #7fa8d8;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.alloc-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1e5c2f;
+  color: #d9f2df;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 999;
+}

@@ -1,3 +1,5 @@
+@import '../../design-tokens.css';
+
 .filter-tabs {
   display: flex;
   gap: 10px;
