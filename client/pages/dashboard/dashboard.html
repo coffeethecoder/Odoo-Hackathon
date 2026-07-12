@@ -9,16 +9,30 @@
 <body>
   <div class="app-container">
     <header class="top-header">
-      <div class="logo">
-        <h1>AssetFlow</h1>
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="logo">
+          <h1>AssetFlow</h1>
+        </div>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">EM</div>
       </div>
     </header>
 
     <div class="layout-wrapper">
       
-      <nav class="sidebar">
+      <div class="overlay" id="sidebar-overlay"></div>
+
+      <nav class="sidebar" id="sidebar">
         <ul class="nav-list" id="nav-list">
-          <li class="nav-item active"><a href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item active"><a href="#">Dashboard</a></li>
           <li class="nav-item"><a href="#">Organization setup</a></li>
           <li class="nav-item"><a href="#">Assets</a></li>
           <li class="nav-item"><a href="#">Allocation & Transfer</a></li>
@@ -38,27 +52,27 @@
         <div class="kpi-grid">
           <div class="kpi-card">
             <span class="kpi-label">Available</span>
-            <span class="kpi-value" id="available">0</span>
+            <span class="kpi-value">128</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Allocated</span>
-            <span class="kpi-value" id="allocated">0</span>
+            <span class="kpi-value">76</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Maintenance Today</span>
-            <span class="kpi-value" id="maintainance">0</span>
+            <span class="kpi-value">4</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Active Bookings</span>
-            <span class="kpi-value" id="active-bookings">0</span>
+            <span class="kpi-value">9</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Pending Transfers</span>
-            <span class="kpi-value" id="pending-transfers">0</span>
+            <span class="kpi-value">3</span>
           </div>
           <div class="kpi-card">
             <span class="kpi-label">Upcoming returns</span>
-            <span class="kpi-value" id="upcoming-returns">0</span>
+            <span class="kpi-value">12</span>
           </div>
         </div>
 
@@ -79,8 +93,17 @@
           <ul class="activity-list">
             <li class="activity-item">
               <div class="activity-indicator"></div>
-              <p></p>
+              <p>Laptop AF-0114 - allocated to Priya shah - IT dept</p>
             </li>
+            <li class="activity-item">
+              <div class="activity-indicator"></div>
+              <p>Room B2 - booking confirmed - 2:00 to 3:00 PM</p>
+            </li>
+            <li class="activity-item">
+              <div class="activity-indicator resolved"></div>
+              <p>Projector AF-0062 - maintenance resolved</p>
+            </li>
+          </ul>
         </section>
       </main>
     </div>
