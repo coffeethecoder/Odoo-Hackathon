@@ -1,0 +1,229 @@
+/**
+ * Somaiya Vidyavihar University Design System
+ * -------------------------------------------------------------
+ * CORE DESIGN TOKENS
+ * -------------------------------------------------------------
+ * This file contains all CSS custom properties mapping the brand color scheme,
+ * typography scale, dynamic spacing grid, border radius scale, elevation shadows,
+ * and responsive variables.
+ *
+ * For collaborative student projects, link this stylesheet first to easily consume
+ * consistent, scalable system-wide variables.
+ */
+
+:root {
+  /* -----------------------------------------------------------
+   * Primary Color Tones (Calculated dynamically)
+   * ----------------------------------------------------------- */
+  --color-primary: #b7202e;
+  --color-primary-hover: #931926;
+  --color-primary-active: #78141e;
+  --color-primary-soft: #ffd5d9;
+  --color-primary-soft-border: #d22637;
+
+  --color-vitality: #ed1c24;
+
+  --color-secondary: #d97706;
+  --color-secondary-hover: #d57e1b;
+  --color-secondary-active: #b25f00;
+  --color-secondary-soft: #f6cd9f;
+
+  /* -----------------------------------------------------------
+   * Typography System
+   * ----------------------------------------------------------- */
+  --font-headings:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-mono:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --fs-xs: 0.75rem; /* 12px */
+  --lh-xs: 1.5;
+
+  --fs-sm: 0.875rem; /* 14px */
+  --lh-sm: 1.5;
+
+  --fs-base: 1rem; /* 16px */
+  --lh-base: 1.6;
+
+  --fs-md: 1.125rem; /* 18px */
+  --lh-md: 1.5;
+
+  --fs-lg: 1.25rem; /* 20px */
+  --lh-lg: 1.4;
+
+  --fs-xl: 1.5rem; /* 24px */
+  --lh-xl: 1.3;
+
+  --fs-2xl: 1.875rem; /* 30px */
+  --lh-2xl: 1.2;
+
+  --fs-3xl: 2.25rem; /* 36px */
+  --lh-3xl: 1.2;
+
+  --fs-4xl: 3rem; /* 48px */
+  --lh-4xl: 1.1;
+
+  /* Letter Spacing */
+  --ls-tight: -0.02em;
+  --ls-normal: 0em;
+  --ls-wide: 0.025em;
+
+  /* -----------------------------------------------------------
+   * Spacing System (4px Base Grid)
+   * ----------------------------------------------------------- */
+  --space-2xs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
+  /* -----------------------------------------------------------
+   *Border Radius System (Can be customized via playground)
+   * ----------------------------------------------------------- */
+  --radius-factor: 1; /* Modifier multiplier for global softness adjustment */
+
+  --radius-xs: calc(4px * var(--radius-factor));
+  --radius-sm: calc(6px * var(--radius-factor));
+  --radius-md: calc(10px * var(--radius-factor));
+  --radius-lg: calc(16px * var(--radius-factor));
+  --radius-xl: calc(24px * var(--radius-factor));
+  --radius-full: 9999px;
+
+  /* -----------------------------------------------------------
+   * Transition & Animation Timing
+   * ----------------------------------------------------------- */
+  --transition-fast: 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* -----------------------------------------------------------
+   * Light Theme Color Mappings (Default State)
+   * ----------------------------------------------------------- */
+  /* Semantic Alerts */
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-success-text: #047857;
+
+  --color-warning: #d97706;
+  --color-warning-soft: #fef3c7;
+  --color-warning-border: #fde68a;
+  --color-warning-text: #b45309;
+
+  --color-error: #dc2626;
+  --color-error-soft: #fef2f2;
+  --color-error-border: #fee2e2;
+  --color-error-text: #b91c1c;
+
+  --color-info: #2563eb;
+  --color-info-soft: #eff6ff;
+  --color-info-border: #bfdbfe;
+  --color-info-text: #1d4ed8;
+
+  /* Core UI Colors */
+  --color-background: #f8fafc; /* Sleek Light Blue-Gray Background */
+  --color-surface: #ffffff; /* Pure White Surfaces */
+  --color-surface-hover: #f1f5f9; /* Light Gray hover overlay */
+  --color-surface-active: #e2e8f0; /* Darker Gray click overlay */
+
+  --color-text-primary: #231f20; /* #231F20 - SVU Pantone Dark Gray */
+  --color-text-secondary: #58595b; /* #58595B - SVU Pantone Cool Gray */
+  --color-text-tertiary: #808285; /* Medium Gray for captions/subtext */
+  --color-text-on-primary: #ffffff; /* Contrast white text on Primary colors */
+
+  --color-border: #c5cacf; /* Slate 200 light grid borders */
+  --color-border-hover: #cbd5e1; /* Slate 300 active input border hover */
+  --color-border-active: #94a3b8; /* Slate 400 active interactive border */
+
+  /* Shadow & Elevation Mappings (Based on Dark Slate shadow projections) */
+  --color-shadow-base: 15, 23, 42;
+
+  --shadow-sm: 0 1px 2px 0 rgba(var(--color-shadow-base), 0.05);
+
+  --shadow-md:
+    0 4px 6px -1px rgba(var(--color-shadow-base), 0.08),
+    0 2px 4px -2px rgba(var(--color-shadow-base), 0.06);
+
+  --shadow-lg:
+    0 10px 15px -3px rgba(var(--color-shadow-base), 0.1),
+    0 4px 6px -4px rgba(var(--color-shadow-base), 0.08);
+
+  --shadow-xl:
+    0 20px 25px -5px rgba(var(--color-shadow-base), 0.12),
+    0 8px 10px -6px rgba(var(--color-shadow-base), 0.1);
+
+  --shadow-glow: 0 0 12px 2px
+    rgba(
+      var(--color-primary-h),
+      var(--color-primary-s),
+      var(--color-primary-l),
+      0.15
+    );
+  --shadow-focus: 0 0 0 4px
+    rgba(
+      var(--color-primary-h),
+      var(--color-primary-s),
+      var(--color-primary-l),
+      0.18
+    );
+  --shadow-focus-secondary: 0 0 0 4px
+    rgba(
+      var(--color-secondary-h),
+      var(--color-secondary-s),
+      var(--color-secondary-l),
+      0.22
+    );
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-3xl);
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-2xl);
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-xl);
+}
+
+h4 {
+  margin: 0;
+  font-family: var(--font-headings);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-lg);
+}
+
+p {
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-sm);
+  margin: 0;
+}
