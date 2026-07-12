@@ -46,13 +46,13 @@
         </section>
 
         <div class="tabs">
-          <button class="tab active">Departments</button>
-          <button class="tab">Categories</button>
-          <button class="tab">Employees</button>
-          <button class="btn btn-primary add-btn">+ Add</button>
+          <button class="tab active" data-target="dept-section">Departments</button>
+          <button class="tab" data-target="cat-section">Categories</button>
+          <button class="tab" data-target="emp-section">Employees</button>
+          <button class="btn btn-primary add-btn" id="main-add-btn">+ Add Department</button>
         </div>
 
-        <div class="table-container">
+        <div id="dept-section" class="table-container tab-content">
           <table>
             <thead>
               <tr>
@@ -60,6 +60,7 @@
                 <th>Head</th>
                 <th>Parent Dept</th>
                 <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -68,23 +69,179 @@
                 <td>Aditi Rao</td>
                 <td>--</td>
                 <td><span class="status active">Active</span></td>
-              </tr>
-              <tr>
-                <td>Facilities</td>
-                <td>Rohan Mehta</td>
-                <td>--</td>
-                <td><span class="status active">Active</span></td>
+                <td><button class="btn btn-edit" data-type="dept">Edit</button></td>
               </tr>
               <tr>
                 <td>Field Ops (East)</td>
                 <td>Sara Iqbal</td>
                 <td>Field Ops</td>
                 <td><span class="status inactive">Inactive</span></td>
+                <td><button class="btn btn-edit" data-type="dept">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="cat-section" class="table-container tab-content hidden">
+          <table>
+            <thead>
+              <tr>
+                <th>Category Name</th>
+                <th>Optional Fields</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Electronics</td>
+                <td>Warranty Period, Serial Number</td>
+                <td><button class="btn btn-edit" data-type="cat">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Furniture</td>
+                <td>Material, Dimensions</td>
+                <td><button class="btn btn-edit" data-type="cat">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="emp-section" class="table-container tab-content hidden">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aditi Rao</td>
+                <td>aditi.r@assetflow.com</td>
+                <td>Engineering</td>
+                <td>Department Head</td>
+                <td><span class="status active">Active</span></td>
+                <td><button class="btn btn-edit" data-type="emp">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Rahul Sharma</td>
+                <td>rahul.s@assetflow.com</td>
+                <td>Facilities</td>
+                <td>Asset Manager</td>
+                <td><span class="status active">Active</span></td>
+                <td><button class="btn btn-edit" data-type="emp">Edit</button></td>
               </tr>
             </tbody>
           </table>
         </div>
       </main>
+    </div>
+  </div>
+
+  <div id="dept-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="dept-modal-title">Add Department</h3>
+      <form id="dept-form">
+        <div class="form-group">
+          <label for="dept-name">Department Name</label>
+          <input type="text" id="dept-name" required>
+        </div>
+        <div class="form-group">
+          <label for="dept-head">Department Head</label>
+          <select id="dept-head">
+            <option value="">-- Select Employee --</option>
+            <option value="1">Aditi Rao</option>
+            <option value="2">Sara Iqbal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dept-parent">Parent Department (Optional)</label>
+          <select id="dept-parent">
+            <option value="">-- None --</option>
+            <option value="eng">Engineering</option>
+            <option value="ops">Field Ops</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dept-status">Status</label>
+          <select id="dept-status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="cat-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="cat-modal-title">Add Category</h3>
+      <form id="cat-form">
+        <div class="form-group">
+          <label for="cat-name">Category Name</label>
+          <input type="text" id="cat-name" required>
+        </div>
+        <div class="form-group">
+          <label for="cat-fields">Optional Category-Specific Fields (Comma separated)</label>
+          <input type="text" id="cat-fields" placeholder="e.g. Warranty Period, IMEI">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="emp-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="emp-modal-title">Manage Employee</h3>
+      <form id="emp-form">
+        <div class="form-group">
+          <label for="emp-name">Full Name</label>
+          <input type="text" id="emp-name" required>
+        </div>
+        <div class="form-group">
+          <label for="emp-email">Email</label>
+          <input type="email" id="emp-email" required>
+        </div>
+        <div class="form-group">
+          <label for="emp-dept">Department</label>
+          <select id="emp-dept">
+            <option value="eng">Engineering</option>
+            <option value="fac">Facilities</option>
+            <option value="ops">Field Ops (East)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="emp-role">System Role</label>
+          <select id="emp-role">
+            <option value="employee">Standard Employee</option>
+            <option value="dept-head">Department Head</option>
+            <option value="asset-manager">Asset Manager</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="emp-status">Status</label>
+          <select id="emp-status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
     </div>
   </div>
 
